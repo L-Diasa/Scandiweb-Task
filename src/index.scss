@@ -1,0 +1,151 @@
+$lightShades: #F1F2F3;
+$darkShades: #37335E;
+$darkAccent: #816786;
+$mainColor: #7797BC;
+$warningColor: #e1ab44;
+$errorColor: #f44336;
+
+$fontFamily: 'Poppins', sans-serif;
+$titleFontSize: 32px;
+$textFontSize: 16px;
+$smallTextFontSize: 14px;
+$generalGap: 20px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $lightShades;
+  color: $darkShades;
+  font-family: $fontFamily;
+  font-size: $textFontSize;
+  font-weight: 400;
+}
+
+.app {
+  padding: $generalGap calc($generalGap * 2);
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  border-bottom: 1px solid $darkAccent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px $generalGap calc($generalGap/2) $generalGap;
+
+  .pagename {
+    font-size: $titleFontSize;
+    font-weight: 600;
+  }
+
+  .header-buttons {
+    display: flex;
+    gap: $generalGap;
+
+    a, 
+    button {
+      border-radius: 3px;
+      padding: 8px 30px;
+      background-color: $darkShades;
+      color: $lightShades;
+      border: 1px solid $darkShades;
+      font-family: $fontFamily;
+      font-weight: 400;
+      font-size: 16px;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $lightShades;
+        color: $darkShades
+      }
+    }
+  }
+}
+
+footer {
+  border-top: 1px solid $darkShades;
+  text-align: center;
+
+  p {
+    padding-top: $generalGap;
+  }
+}
+
+.products_div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  grid-auto-rows: minmax(185px, auto);
+  grid-gap: $generalGap;
+  padding: $generalGap 0px;
+
+  .product {
+    width: 300px;
+    min-height: 185px;
+    margin: auto;
+    border-radius: 6px;
+    padding: $generalGap $generalGap;
+    height: 100%;
+    
+    background-color: $mainColor;
+    color: $lightShades;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0
+      3px 1px -2px rgb(0 0 0 / 20%),
+      0 1px 5px 0 rgb(0 0 0 / 12%);
+    
+      .delete-checkbox {
+        width: $generalGap;
+        height: $generalGap;
+        accent-color: $darkAccent;
+        outline-color: $darkShades;
+        cursor: pointer;
+      }
+      
+      .product-details {
+        padding: 0px $generalGap $generalGap $generalGap;
+        text-align: center;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
+      }
+  }
+}
+
+#product_form {
+  padding: $generalGap $generalGap;
+
+  input, select, option {
+    padding: 0px calc($generalGap/2);
+    border: unset;
+    background-color: $lightShades;
+    border-bottom: 1px solid $darkShades;
+    color: $darkShades;
+    font-size: inherit;
+    outline-color: transparent;
+    outline: transparent;
+  }
+
+  label {
+    margin: calc($generalGap/2) 0px ;
+    margin-bottom: $generalGap;
+    display: block;
+  }
+
+  .description {
+    color: $warningColor;
+    font-size: 14px;
+  }
+  
+  .error {
+    color: $errorColor;
+    font-size: 14px;
+  }
+}
